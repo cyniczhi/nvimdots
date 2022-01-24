@@ -94,7 +94,7 @@ editor["andymass/vim-matchup"] = {
     config = conf.matchup
 }
 
-editor["rhysd/accelerated-jk"] = {opt = true}
+-- editor["rhysd/accelerated-jk"] = {opt = true}
 editor["hrsh7th/vim-eft"] = {opt = true}
 
 -- editor["romainl/vim-cool"] = {

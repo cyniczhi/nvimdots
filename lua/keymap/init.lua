@@ -77,8 +77,9 @@ local plug_map = {
     ["n|<Leader>fw"] = map_cu("DashboardFindWord"):with_noremap():with_silent(),
     ["n|<Leader>fn"] = map_cu("DashboardNewFile"):with_noremap():with_silent(),
     -- Plugin accelerate-jk
-    ["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
-    ["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
+    -- ["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
+    -- ["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
+
     -- Plugin vim-eft
     ["n|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
     ["n|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),

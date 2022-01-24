@@ -123,7 +123,7 @@ local load_core = function()
     pack.load_compile()
     dashboard_config()
 
-    vim.cmd [[colorscheme catppuccin]]
+    vim.cmd [[colorscheme edge]]
 end
 
 load_core()
