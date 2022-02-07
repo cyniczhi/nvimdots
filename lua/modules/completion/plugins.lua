@@ -5,10 +5,20 @@ local completion = {}
 local conf = require("modules.completion.config")
 
 -- tag function
-completion["weilbith/nvim-lsp-smag"] = {}
+completion["weilbith/nvim-lsp-smag"] = {
+    opt = true,
+    after = "nvim-lspconfig"
+}
 
 completion["neovim/nvim-lspconfig"] = {
+    opt = true,
+    event = "BufReadPre",
     config = conf.nvim_lsp
+}
+
+completion["creativenull/efmls-configs-nvim"] = {
+    opt = false,
+    requires = "neovim/nvim-lspconfig"
 }
 
 -- lsp installer

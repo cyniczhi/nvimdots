@@ -56,12 +56,11 @@ local plug_map = {
     ["n|<leader>cl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
     -- Plugin nvim-tree
     ["n|<Leader>ls"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
-    ["n|<Leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
-    ["n|<Leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
+    -- ["n|<Leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
+    -- ["n|<Leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
+
     -- Plugin Telescope
-    -- grep string
     ["n|<leader>lg"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
-    -- grep word
     ["n|<leader>wg"] = map_cu("Telescope grep_string use_regex=true"):with_noremap():with_silent(),
     ["n|<C-p>"] = map_cu("Telescope find_files ignore_current_buffer=true sort_mru=true"):with_noremap():with_silent(),
     ["n|<C-n>"] = map_cu("Telescope buffers ignore_current_buffer=true sort_mru=true"):with_noremap():with_silent(),
@@ -93,8 +92,8 @@ local plug_map = {
     ["n|<leader>jc"] = map_cu("HopChar1"):with_noremap(),
     ["n|<leader>jcc"] = map_cu("HopChar2"):with_noremap(),
     -- Plugin EasyAlign
-    ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
-    ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
+    ["n|nga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
+    ["x|xga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
     -- Plugin SymbolsOutline
     ["n|<leader>t"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
     -- Plugin split-term

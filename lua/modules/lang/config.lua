@@ -73,7 +73,8 @@ function config.rust_tools()
 end
 
 function config.lang_go()
-    vim.g.go_doc_keywordprg_enabled = false
+    vim.g.go_doc_keywordprg_enabled = true
+    vim.g.go_code_completion_enabled = false
 end
 
 return config

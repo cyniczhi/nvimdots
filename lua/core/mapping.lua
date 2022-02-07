@@ -12,9 +12,10 @@ local def_map = {
     ["n|<C-s>"] = map_cu("write"):with_noremap(),
     -- ["n|Y"] = map_cmd("y$"),
     -- ["n|D"] = map_cmd("d$"),
-    ["n|n"] = map_cmd("nzzzv"):with_noremap(),
+    -- ["n|n"] = map_cmd("nzzzv"):with_noremap(),
+    -- ["n|\"] = map_cu(";"):with_noremap(),
     ["n|J"] = map_cmd("mzJ`z"):with_noremap(),
-    ["n|N"] = map_cmd("Nzzzv"):with_noremap(),
+    -- ["n|N"] = map_cmd("Nzzzv"):with_noremap(),
     ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
     ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
     ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
@@ -42,8 +43,7 @@ local def_map = {
     ["c|<C-d>"] = map_cmd("<Del>"):with_noremap(),
     ["c|<C-h>"] = map_cmd("<BS>"):with_noremap(),
     ["c|<C-t>"] = map_cmd([[<C-R>=expand("%:p:h") . "/" <CR>]]):with_noremap(),
-    ["c|w!!"] = map_cmd(
-        "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"),
+    ["c|w!!"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"),
     -- Visual
     -- ["v|J"] = map_cmd(":m '>+1<cr>gv=gv"),
     -- ["v|K"] = map_cmd(":m '<-2<cr>gv=gv"),

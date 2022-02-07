@@ -1,7 +1,7 @@
 local config = {}
 
 function config.nvim_lsp()
-    require("modules.completion.lspconfig")
+    require("modules.completion.lsp")
 end
 
 function config.lightbulb()
@@ -102,6 +102,8 @@ function config.cmp()
             ["<Tab>"] = cmp.mapping(
                 function(fallback)
                     if cmp.visible() then
+                        -- elseif luasnip.expand_or_jumpable() then
+                        --     luasnip.expand_or_jump()
                         cmp.select_next_item()
                     elseif has_words_before() then
                         cmp.complete()
