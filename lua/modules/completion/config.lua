@@ -30,7 +30,6 @@ function config.cmp()
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
 
-    local luasnip = require("luasnip")
     local cmp = require("cmp")
     cmp.setup {
         sorting = {
@@ -104,8 +103,8 @@ function config.cmp()
                 function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
+                    elseif require("luasnip").expand_or_jumpable() then
+                        require("luasnip").expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -118,8 +117,8 @@ function config.cmp()
                 function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
+                    elseif require("luasnip").jumpable(-1) then
+                        require("luasnip").jump(-1)
                     else
                         fallback()
                     end
@@ -127,14 +126,14 @@ function config.cmp()
                 {"i", "s"}
             ),
             ["<C-k>"] = function(fallback)
-                if luasnip.jumpable(-1) then
+                if require("luasnip").jumpable(-1) then
                     vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
                 else
                     fallback()
                 end
             end,
             ["<C-j>"] = function(fallback)
-                if luasnip.expand_or_jumpable() then
+                if require("luasnip").expand_or_jumpable() then
                     vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
                 else
                     fallback()
@@ -143,7 +142,7 @@ function config.cmp()
         },
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                require("luasnip").lsp_expand(args.body)
             end
         },
         -- You should specify your *installed* sources.
@@ -182,23 +181,23 @@ end
 -- vim.cmd([[packadd luasnip]])
 
 function config.luasnip()
-    -- local types = require("luasnip.util.types")
+    local types = require("luasnip.util.types")
 
     require("luasnip").config.set_config {
         history = true,
-        updateevents = "TextChanged,TextChangedI"
-        -- ext_opts = {
-        --     [types.choiceNode] = {
-        --         active = {
-        --             virt_text = {{"●", "GruvboxOrange"}}
-        --         }
-        --     },
-        --     [types.insertNode] = {
-        --         active = {
-        --             virt_text = {{"●", "GruvboxBlue"}}
-        --         }
-        --     }
-        -- }
+        updateevents = "TextChanged,TextChangedI",
+        ext_opts = {
+            [types.choiceNode] = {
+                active = {
+                    virt_text = {{"●", "#D08770"}}
+                }
+            },
+            [types.insertNode] = {
+                active = {
+                    virt_text = {{"●", "#5E81AC"}}
+                }
+            }
+        }
     }
     require("luasnip/loaders/from_vscode").load()
 end
