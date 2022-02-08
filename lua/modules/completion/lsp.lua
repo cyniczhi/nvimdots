@@ -1,3 +1,4 @@
+local global = require "core.global"
 -- require("modules.completion.formatting")
 
 vim.cmd([[packadd nvim-lsp-installer]])
@@ -120,12 +121,30 @@ local enhance_server_opts = {
             }
         }
     end,
+    ["ccls"] = function(opts)
+        opts.init_options = {
+            index = {
+                threads = 0
+            },
+            clang = {
+                excludeArgs = {}
+            },
+            cache = {
+                directory = global.cache_dir .. "ccls"
+            }
+        }
+    end,
     ["clangd"] = function(opts)
         opts.args = {
             "--background-index",
             "-std=c++20",
             "--pch-storage=memory",
             "--clang-tidy",
+            "-j=8",
+            "--all-scopes-completion",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--header-insertion=iwyu",
             "--suggest-missing-includes"
         }
         opts.capabilities.offsetEncoding = {"utf-16"}
