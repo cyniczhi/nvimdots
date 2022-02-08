@@ -11,8 +11,8 @@ completion["weilbith/nvim-lsp-smag"] = {
 }
 
 completion["neovim/nvim-lspconfig"] = {
-    opt = true,
-    event = "BufReadPre",
+    opt = false,
+    -- event = "BufReadPre",
     config = conf.nvim_lsp
 }
 
@@ -76,7 +76,10 @@ completion["uga-rosa/cmp-dictionary"] = {
 completion["L3MON4D3/LuaSnip"] = {
     after = "nvim-cmp",
     config = conf.luasnip,
-    requires = "rafamadriz/friendly-snippets"
+    requires = {
+        "rafamadriz/friendly-snippets",
+        "honza/vim-snippets"
+    }
 }
 
 completion["windwp/nvim-autopairs"] = {

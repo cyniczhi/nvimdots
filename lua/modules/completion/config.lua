@@ -178,28 +178,27 @@ function config.dictionary()
     }
 end
 
--- vim.cmd([[packadd luasnip]])
-
 function config.luasnip()
-    local types = require("luasnip.util.types")
+    -- local types = require("luasnip.util.types")
 
     require("luasnip").config.set_config {
         history = true,
-        updateevents = "TextChanged,TextChangedI",
-        ext_opts = {
-            [types.choiceNode] = {
-                active = {
-                    virt_text = {{"●", "#D08770"}}
-                }
-            },
-            [types.insertNode] = {
-                active = {
-                    virt_text = {{"●", "#5E81AC"}}
-                }
-            }
-        }
+        updateevents = "TextChanged,TextChangedI"
+        -- ext_opts = {
+        --     [types.choiceNode] = {
+        --         active = {
+        --             virt_text = {{"●", "#D08770"}}
+        --         }
+        --     },
+        --     [types.insertNode] = {
+        --         active = {
+        --             virt_text = {{"●", "#5E81AC"}}
+        --         }
+        --     }
+        -- }
     }
-    require("luasnip/loaders/from_vscode").load()
+    require("luasnip.loaders.from_vscode").load()
+    require("luasnip.loaders.from_snipmate").load()
 end
 
 -- function config.tabnine()
