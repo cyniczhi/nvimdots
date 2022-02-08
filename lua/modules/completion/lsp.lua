@@ -1,4 +1,4 @@
-require("modules.completion.formatting")
+-- require("modules.completion.formatting")
 
 vim.cmd([[packadd nvim-lsp-installer]])
 vim.cmd([[packadd lsp_signature.nvim]])

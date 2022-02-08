@@ -92,8 +92,8 @@ local plug_map = {
     ["n|<leader>jc"] = map_cu("HopChar1"):with_noremap(),
     ["n|<leader>jcc"] = map_cu("HopChar2"):with_noremap(),
     -- Plugin EasyAlign
-    ["n|nga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
-    ["x|xga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
+    ["n|gl"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
+    ["x|gl"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
     -- Plugin SymbolsOutline
     ["n|<leader>t"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
     -- Plugin split-term
