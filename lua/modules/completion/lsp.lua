@@ -9,6 +9,7 @@ vim.cmd([[packadd cmp-nvim-lsp]])
 local nvim_lsp = require("lspconfig")
 local saga = require("lspsaga")
 local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
 -- Override diagnostics symbol
 saga.init_lsp_saga(
@@ -262,21 +263,43 @@ local enhance_server_opts = {
     end
 }
 
-lsp_installer.on_server_ready(
-    function(server)
-        local opts = {
-            capabilities = capabilities,
-            flags = {debounce_text_changes = 500},
-            on_attach = custom_attach
-        }
+local servers = {
+    "bashls",
+    "ccls",
+    "cmake",
+    "dockerls",
+    "gopls",
+    "jedi_language_server",
+    "jsonls",
+    "sumneko_lua new version available",
+    "tsserver new version available",
+    "yamlls",
+    "ltex" -- latex
+}
 
-        if enhance_server_opts[server.name] then
-            enhance_server_opts[server.name](opts)
+for _, server_name in pairs(servers) do
+    local server_available, server = lsp_installer_servers.get_server(server_name)
+    if server_available then
+        server:on_ready(
+            function()
+                local opts = {
+                    capabilities = capabilities,
+                    flags = {debounce_text_changes = 500},
+                    on_attach = custom_attach
+                }
+
+                if enhance_server_opts[server.name] then
+                    enhance_server_opts[server.name](opts)
+                end
+                server:setup(opts)
+            end
+        )
+
+        if not server:is_installed() then
+            server:install()
         end
-
-        server:setup(opts)
     end
-)
+end
 
 nvim_lsp.html.setup(
     {
