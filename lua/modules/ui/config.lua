@@ -11,21 +11,23 @@ function config.edge()
 end
 
 function config.kanagawa()
-    require('kanagawa').setup({
-        undercurl = true, -- enable undercurls
-        commentStyle = "italic",
-        functionStyle = "bold,italic",
-        keywordStyle = "italic",
-        statementStyle = "bold",
-        typeStyle = "NONE",
-        variablebuiltinStyle = "italic",
-        specialReturn = true, -- special highlight for the return keyword
-        specialException = true, -- special highlight for exception handling keywords 
-        transparent = false, -- do not set background color
-        dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-        colors = {},
-        overrides = {}
-    })
+    require("kanagawa").setup(
+        {
+            undercurl = true, -- enable undercurls
+            commentStyle = "italic",
+            functionStyle = "bold,italic",
+            keywordStyle = "italic",
+            statementStyle = "bold",
+            typeStyle = "NONE",
+            variablebuiltinStyle = "italic",
+            specialReturn = true, -- special highlight for the return keyword
+            specialException = true, -- special highlight for exception handling keywords
+            transparent = false, -- do not set background color
+            dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+            colors = {},
+            overrides = {}
+        }
+    )
 end
 
 function config.catppuccin()
@@ -167,7 +169,7 @@ function config.nvim_tree()
         view = {
             width = 30,
             side = "left",
-            auto_resize = false,
+            auto_resize = true,
             mappings = {
                 custom_only = true,
                 -- list of mappings to set on the tree manually

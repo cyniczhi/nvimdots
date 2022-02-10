@@ -6,8 +6,8 @@ local conf = require("modules.completion.config")
 
 -- tag function
 completion["weilbith/nvim-lsp-smag"] = {
-    opt = true,
-    after = "nvim-lspconfig"
+    opt = false
+    -- after = "nvim-lspconfig"
 }
 
 completion["neovim/nvim-lspconfig"] = {

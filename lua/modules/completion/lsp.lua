@@ -123,7 +123,14 @@ local enhance_server_opts = {
         }
     end,
     ["ccls"] = function(opts)
+        opts.args = {
+            "--log-file=/tmp/.ccls.nvim.log",
+            '--init={"capabilities": {"foldingRangeProvider": false}}'
+        }
         opts.init_options = {
+            completion = {
+                detailedLabel = true
+            },
             index = {
                 threads = 0
             },
