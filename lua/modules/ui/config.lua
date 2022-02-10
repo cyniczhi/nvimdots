@@ -25,7 +25,13 @@ function config.kanagawa()
             transparent = false, -- do not set background color
             dimInactive = true, -- dim inactive window `:h hl-NormalNC`
             colors = {},
-            overrides = {}
+            overrides = {
+                -- Git Signs
+                GitSignsCurrentLineBlame = {
+                    fg = "Gray",
+                    gui = "italic"
+                }
+            }
         }
     )
 end
@@ -305,7 +311,7 @@ function config.gitsigns()
         },
         watch_gitdir = {interval = 1000, follow_files = true},
         current_line_blame = true,
-        current_line_blame_opts = {delay = 1000, virtual_text_pos = "eol"},
+        current_line_blame_opts = {delay = 800, virtual_text_pos = "eol"},
         sign_priority = 6,
         update_debounce = 100,
         status_formatter = nil, -- Use default

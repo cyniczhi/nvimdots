@@ -278,8 +278,8 @@ local servers = {
     "gopls",
     "jedi_language_server",
     "jsonls",
-    "sumneko_lua new version available",
-    "tsserver new version available",
+    "sumneko_lua",
+    "tsserver",
     "yamlls",
     "ltex" -- latex
 }
