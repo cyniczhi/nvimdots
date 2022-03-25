@@ -66,9 +66,9 @@ local function custom_attach(client)
 
     if client.resolved_capabilities.document_formatting then
         vim.cmd([[augroup Format]])
-        vim.cmd([[autocmd! * <buffer>]])
+        -- vim.cmd([[autocmd! * <buffer>]])
         vim.cmd(
-            [[autocmd BufWritePost <buffer> lua require'modules.completion.formatting'.format()]])
+            [[autocmd! BufWritePost *.lua,*.json,*.yaml,*.ts,*.js lua require'modules.completion.formatting'.format()]])
         vim.cmd([[augroup END]])
     end
 end
