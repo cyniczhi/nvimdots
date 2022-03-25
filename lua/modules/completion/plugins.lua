@@ -1,6 +1,5 @@
 -- legacy pure nvim completion solution
 -- use coc currently, for clangd looks better
-
 local completion = {}
 local conf = require("modules.completion.config")
 
@@ -28,10 +27,7 @@ completion["williamboman/nvim-lsp-installer"] = {
 }
 
 -- lsp ui
-completion["tami5/lspsaga.nvim"] = {
-    opt = true,
-    after = "nvim-lspconfig"
-}
+completion["tami5/lspsaga.nvim"] = {opt = true, after = "nvim-lspconfig"}
 
 completion["kosayoda/nvim-lightbulb"] = {
     opt = true,
@@ -39,10 +35,7 @@ completion["kosayoda/nvim-lightbulb"] = {
     config = conf.lightbulb
 }
 
-completion["ray-x/lsp_signature.nvim"] = {
-    opt = true,
-    after = "nvim-lspconfig"
-}
+completion["ray-x/lsp_signature.nvim"] = {opt = true, after = "nvim-lspconfig"}
 
 completion["hrsh7th/nvim-cmp"] = {
     config = conf.cmp,
@@ -76,10 +69,7 @@ completion["uga-rosa/cmp-dictionary"] = {
 completion["L3MON4D3/LuaSnip"] = {
     after = "nvim-cmp",
     config = conf.luasnip,
-    requires = {
-        "rafamadriz/friendly-snippets",
-        "honza/vim-snippets"
-    }
+    requires = {"rafamadriz/friendly-snippets", "honza/vim-snippets"}
 }
 
 completion["windwp/nvim-autopairs"] = {
