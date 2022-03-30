@@ -66,9 +66,9 @@ local function custom_attach(client)
 
     if client.resolved_capabilities.document_formatting then
         vim.cmd([[augroup Format]])
-        -- vim.cmd([[autocmd! * <buffer>]])
+        vim.cmd([[autocmd! * <buffer>]])
         vim.cmd(
-            [[autocmd! BufWritePost *.lua,*.json,*.yaml,*.ts,*.js lua require'modules.completion.formatting'.format()]])
+            [[autocmd! BufWritePost <buffer> lua require'modules.completion.formatting'.format()]])
         vim.cmd([[augroup END]])
     end
 end
@@ -123,6 +123,12 @@ local enhance_server_opts = {
             clang = {excludeArgs = {}},
             cache = {directory = global.cache_dir .. "ccls"}
         }
+
+        -- Disable `gopls`'s format
+        opts.on_attach = function(client)
+            client.resolved_capabilities.document_formatting = false
+            custom_attach(client)
+        end
     end,
     ["clangd"] = function(opts)
         opts.args = {
@@ -281,9 +287,11 @@ local efmls = require("efmls-configs")
 
 -- Init `efm-langserver` here.
 
+local efmls_capabilities = capabilities
+efmls_capabilities.offsetEncoding = {"utf-16"}
 efmls.init({
     on_attach = custom_attach,
-    capabilities = capabilities,
+    capabilities = efmls_capabilities,
     init_options = {documentFormatting = true, codeAction = true}
 })
 
