@@ -304,12 +304,13 @@ local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
 local staticcheck = require("efmls-configs.linters.staticcheck")
 
-local black = require("efmls-configs.formatters.black")
+-- local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.lua_format")
 local clangfmt = require("efmls-configs.formatters.clang_format")
 local goimports = require("efmls-configs.formatters.goimports")
 local prettier = require("efmls-configs.formatters.prettier")
 local shfmt = require("efmls-configs.formatters.shfmt")
+local autopep = require("efmls-configs.formatters.autopep8")
 
 -- Add your own config for formatter and linter here
 
@@ -333,7 +334,7 @@ efmls.setup({
     c = {formatter = clangfmt, linter = clangtidy},
     cpp = {formatter = clangfmt, linter = clangtidy},
     go = {formatter = goimports, linter = staticcheck},
-    python = {formatter = black},
+    python = {formatter = autopep, linter = flake8},
     vue = {formatter = prettier},
     typescript = {formatter = prettier, linter = eslint},
     javascript = {formatter = prettier, linter = eslint},
