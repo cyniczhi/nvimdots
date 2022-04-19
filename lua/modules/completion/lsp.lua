@@ -303,6 +303,7 @@ local eslint = require("efmls-configs.linters.eslint")
 local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
 local staticcheck = require("efmls-configs.linters.staticcheck")
+local alex = require("efmls-configs.linters.alex")
 
 -- local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.lua_format")
@@ -345,6 +346,7 @@ efmls.setup({
     css = {formatter = prettier},
     scss = {formatter = prettier},
     sh = {formatter = shfmt, linter = shellcheck},
-    markdown = {formatter = prettier}
+    markdown = {formatter = prettier},
+    tex = {formatter = alex}
     -- rust = {formatter = rustfmt},
 })
